@@ -1,0 +1,27 @@
+CXX = g++
+CXXFLAGS =
+TARGET = add_numbers
+SOURCE = add_numbers.cpp
+ASM = $(TARGET).asm
+
+# Default target to build the executable
+all: $(TARGET)
+
+# Rule to build the executable
+$(TARGET): $(SOURCE)
+	$(CXX) $(CXXFLAGS) -o $(TARGET) $(SOURCE)
+
+# Rule to disassemble the executable
+dump: $(TARGET)
+	objdump -d $(TARGET) > $(ASM)
+
+# Rule to clean up generated files
+clean:
+	rm -f $(TARGET) $(ASM)
+
+# Rule to run the executable
+run: $(TARGET)
+	./$(TARGET)
+
+# Declare phony targets
+.PHONY: all dump clean run
