@@ -10,6 +10,6 @@ int main() {
     
     result = num1 * num2;
 
-    cout << result << endl ;
+
     return 0;
 }
